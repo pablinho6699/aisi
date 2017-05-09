@@ -1,0 +1,10 @@
+machine:
+    pre:
+        - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
+    services:
+        - docker
+test:
+    override:
+        - docker-compose run 
+        - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
+        - bundle exec cucumber --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml
