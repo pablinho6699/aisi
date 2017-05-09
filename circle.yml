@@ -5,6 +5,6 @@ machine:
         - docker
 test:
     override:
-        - docker-compose run 
+        - docker-compose run web python manage.py shell
         - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
         - bundle exec cucumber --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml
