@@ -1,8 +1,9 @@
- services:
-   web:
-     image: dockerfilecongitclone
-     command: python3 manage.py runserver 0.0.0.0:8000
-     volumes:
-       - .:/code
-     ports:
-       - "8000:8000"
+version: '2'
+services:
+  web:
+    image: dockerfilecongitclone
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
